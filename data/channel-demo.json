@@ -1,0 +1,9 @@
+[
+  {"out_trade_no":"L1001","transaction_id":"CH-1001","total_amount":"100.00","currency_code":"CNY","trade_status":"paid","service_fee":"0.60","paid_at":"2026-09-12T09:12:14+08:00"},
+  {"out_trade_no":"L1002","transaction_id":"CH-1002","total_amount":"59.00","currency_code":"CNY","trade_status":"SUCCESS","service_fee":"0.36","paid_at":"2026-09-12T09:18:11+08:00"},
+  {"out_trade_no":"L1004","transaction_id":"CH-1004","total_amount":"120.00","currency_code":"CNY","trade_status":"SUCCESS","service_fee":"0.72","paid_at":"2026-09-12T09:30:09+08:00"},
+  {"out_trade_no":"L1005","transaction_id":"CH-1005","total_amount":"45.00","currency_code":"CNY","trade_status":"SUCCESS","service_fee":"0.27","paid_at":"2026-09-13T10:00:00+08:00"},
+  {"out_trade_no":"L1006","transaction_id":"CH-1006-A","total_amount":"30.00","currency_code":"CNY","trade_status":"SUCCESS","service_fee":"0.18","paid_at":"2026-09-12T10:05:03+08:00"},
+  {"out_trade_no":"L1006","transaction_id":"CH-1006-B","total_amount":"30.00","currency_code":"CNY","trade_status":"SUCCESS","service_fee":"0.18","paid_at":"2026-09-12T10:05:06+08:00"},
+  {"out_trade_no":"CHANNEL-ONLY-1","transaction_id":"CH-EXTRA-1","total_amount":"16.80","currency_code":"CNY","trade_status":"SUCCESS","service_fee":"0.10","paid_at":"2026-09-12T11:20:00+08:00"}
+]

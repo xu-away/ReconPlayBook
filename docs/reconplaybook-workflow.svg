@@ -1,0 +1,49 @@
+<svg width="1600" height="560" viewBox="0 0 1600 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="560" fill="#F4F7F8"/>
+  <rect x="32" y="32" width="1536" height="496" rx="18" fill="#FFFFFF" stroke="#DCE3E8" stroke-width="2"/>
+  <text x="76" y="98" fill="#087F78" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="800" letter-spacing="3">CASE WORKFLOW</text>
+  <text x="76" y="142" fill="#14202B" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="800">A difference becomes a controlled case</text>
+  <text x="76" y="174" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="16">The system preserves context from diagnosis to human action and downstream verification.</text>
+
+  <path d="M178 312H1418" stroke="#DCE3E8" stroke-width="4"/>
+  <path d="M388 312H500M748 312H860M1108 312H1220" stroke="#087F78" stroke-width="4"/>
+  <path d="M490 302L504 312L490 322M850 302L864 312L850 322M1210 302L1224 312L1210 322" stroke="#087F78" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <circle cx="178" cy="312" r="28" fill="#E3F2F0" stroke="#087F78" stroke-width="3"/>
+  <circle cx="538" cy="312" r="28" fill="#E9F0FB" stroke="#3766A8" stroke-width="3"/>
+  <circle cx="898" cy="312" r="28" fill="#FFF3DC" stroke="#B76C00" stroke-width="3"/>
+  <circle cx="1258" cy="312" r="28" fill="#FDEBEA" stroke="#BD3D37" stroke-width="3"/>
+  <circle cx="1418" cy="312" r="28" fill="#E3F2F0" stroke="#087F78" stroke-width="3"/>
+
+  <text x="178" y="319" text-anchor="middle" fill="#087F78" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800">01</text>
+  <text x="538" y="319" text-anchor="middle" fill="#3766A8" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800">02</text>
+  <text x="898" y="319" text-anchor="middle" fill="#B76C00" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800">03</text>
+  <text x="1258" y="319" text-anchor="middle" fill="#BD3D37" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800">04</text>
+  <text x="1418" y="319" text-anchor="middle" fill="#087F78" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800">05</text>
+
+  <text x="178" y="388" text-anchor="middle" fill="#14202B" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="800">DETECT</text>
+  <text x="178" y="416" text-anchor="middle" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="14">Classify the mismatch</text>
+  <text x="538" y="388" text-anchor="middle" fill="#14202B" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="800">DIAGNOSE</text>
+  <text x="538" y="416" text-anchor="middle" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="14">Explain cause and impact</text>
+  <text x="898" y="388" text-anchor="middle" fill="#14202B" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="800">DECIDE</text>
+  <text x="898" y="416" text-anchor="middle" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="14">Select a playbook</text>
+  <text x="1258" y="388" text-anchor="middle" fill="#14202B" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="800">ACT</text>
+  <text x="1258" y="416" text-anchor="middle" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="14">Lookup, approve, resend</text>
+  <text x="1418" y="388" text-anchor="middle" fill="#14202B" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="800">PROVE</text>
+  <text x="1418" y="416" text-anchor="middle" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="14">Leave an audit trail</text>
+
+  <rect x="76" y="470" width="1448" height="1" fill="#E8EEF0"/>
+  <text x="76" y="500" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="13">READY</text>
+  <text x="176" y="500" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="13">→</text>
+  <text x="202" y="500" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="13">INVESTIGATING</text>
+  <text x="390" y="500" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="13">→</text>
+  <text x="416" y="500" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="13">PENDING_APPROVAL</text>
+  <text x="628" y="500" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="13">→</text>
+  <text x="654" y="500" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="13">AUTO_PROCESSING</text>
+  <text x="866" y="500" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="13">→</text>
+  <text x="892" y="500" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="13">RESOLVED</text>
+  <text x="1054" y="500" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="13">·</text>
+  <text x="1080" y="500" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="13">REJECTED</text>
+  <text x="1236" y="500" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="13">·</text>
+  <text x="1262" y="500" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="13">WAITING_EXTERNAL</text>
+</svg>

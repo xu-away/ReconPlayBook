@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ReconPlaybook · 对账差错工作台</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="app-shell">
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-mark">R</div>
+            <div>
+                <strong>ReconPlaybook</strong>
+                <span>对账差错工作台</span>
+            </div>
+        </div>
+        <div class="topbar-meta">
+            <span class="status-dot"></span>
+            <span>本地模式</span>
+            <span class="version">V0.4</span>
+        </div>
+    </header>
+
+    <main class="workspace">
+        <section class="intro-row">
+            <div>
+                <p class="eyebrow">RECONCILIATION / V0.4</p>
+                <h1>把两份账单对成一条清晰的处理队列</h1>
+                <p class="subline">导入本地流水与渠道账单，按统一字段匹配并定位需要核查的差异。</p>
+            </div>
+            <button id="loadDemo" class="button button-secondary"><span>↺</span>载入 Demo</button>
+        </section>
+
+        <section class="source-grid">
+            <div class="source-panel">
+                <div class="panel-heading">
+                    <div>
+                        <span class="panel-kicker">SOURCE 01</span>
+                        <h2>本地流水</h2>
+                    </div>
+                    <span id="localFormat" class="format-badge">未选择</span>
+                </div>
+                <label class="dropzone" for="localFile">
+                    <input id="localFile" type="file" accept=".csv,.json,application/json,text/csv">
+                    <span class="drop-icon">↥</span>
+                    <strong id="localFileName">选择 CSV 或 JSON 文件</strong>
+                    <small id="localFileMeta">支持订单号、金额、币种、状态、时间等字段</small>
+                </label>
+            </div>
+            <div class="source-panel">
+                <div class="panel-heading">
+                    <div>
+                        <span class="panel-kicker">SOURCE 02</span>
+                        <h2>渠道账单</h2>
+                    </div>
+                    <span id="channelFormat" class="format-badge">未选择</span>
+                </div>
+                <label class="dropzone" for="channelFile">
+                    <input id="channelFile" type="file" accept=".csv,.json,application/json,text/csv">
+                    <span class="drop-icon">↥</span>
+                    <strong id="channelFileName">选择 CSV 或 JSON 文件</strong>
+                    <small id="channelFileMeta">支持字段别名自动标准化</small>
+                </label>
+            </div>
+        </section>
+
+        <section class="action-row">
+            <div id="runHint" class="run-hint">先载入 Demo，或选择两份账单文件。</div>
+            <button id="runRecon" class="button button-primary" disabled><span>▶</span>开始匹配</button>
+        </section>
+
+        <section id="resultsSection" class="results-section is-hidden">
+            <div class="results-header">
+                <div>
+                    <p class="eyebrow">MATCHING RESULT</p>
+                    <h2>匹配结果</h2>
+                </div>
+                <button id="exportCsv" class="button button-secondary" disabled><span>⇩</span>导出 CSV</button>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-block stat-total"><span>总记录</span><strong id="statTotal">0</strong></div>
+                <div class="stat-block stat-matched"><span>已匹配</span><strong id="statMatched">0</strong></div>
+                <div class="stat-block stat-attention"><span>待处理</span><strong id="statAttention">0</strong></div>
+                <div class="stat-block stat-risk"><span>高风险</span><strong id="statHighRisk">0</strong></div>
+                <div class="stat-block stat-manual"><span>需人工介入</span><strong id="statManual">0</strong></div>
+            </div>
+
+            <div class="table-toolbar">
+                <div class="file-summary">
+                    <span id="localSummary">本地流水</span>
+                    <span class="arrow">→</span>
+                    <span id="channelSummary">渠道账单</span>
+                </div>
+                <label class="filter-control">
+                    <span>筛选</span>
+                    <select id="resultFilter">
+                        <option value="ALL">全部结果</option>
+                        <option value="MATCHED">已匹配</option>
+                        <option value="ATTENTION">待处理</option>
+                        <option value="HIGH">高风险</option>
+                        <option value="MANUAL">人工队列</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>订单号</th>
+                        <th>差异类型</th>
+                        <th>处理剧本</th>
+                        <th>本地金额</th>
+                        <th>渠道金额</th>
+                        <th>风险</th>
+                        <th>差错单状态</th>
+                        <th>下一步</th>
+                    </tr>
+                    </thead>
+                    <tbody id="resultBody"></tbody>
+                </table>
+                <div id="emptyResults" class="empty-state is-hidden">没有符合当前筛选条件的结果。</div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<aside id="detailPanel" class="detail-panel" aria-hidden="true">
+    <div class="detail-head">
+        <div>
+            <span class="panel-kicker">CASE DETAIL</span>
+            <h2 id="detailTitle">差异详情</h2>
+        </div>
+        <button id="closeDetail" class="icon-button" title="关闭详情">×</button>
+    </div>
+    <div id="detailContent"></div>
+</aside>
+<div id="toast" class="toast" role="status"></div>
+<script src="/app.js"></script>
+</body>
+</html>

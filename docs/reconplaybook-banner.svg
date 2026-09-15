@@ -1,0 +1,71 @@
+<svg width="1600" height="820" viewBox="0 0 1600 820" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="820" fill="#F4F7F8"/>
+  <rect x="34" y="34" width="1532" height="752" rx="18" fill="#FFFFFF" stroke="#DCE3E8" stroke-width="2"/>
+
+  <path d="M58 184H1542M58 688H1542" stroke="#E8EEF0" stroke-width="2"/>
+  <path d="M104 222V646M1496 222V646" stroke="#E8EEF0" stroke-width="2"/>
+  <path d="M104 264H1496M104 306H1496M104 348H1496M104 390H1496M104 432H1496M104 474H1496M104 516H1496M104 558H1496M104 600H1496" stroke="#F0F3F4" stroke-width="1"/>
+  <path d="M146 222V646M188 222V646M1412 222V646M1454 222V646" stroke="#F0F3F4" stroke-width="1"/>
+
+  <rect x="82" y="80" width="42" height="42" rx="9" fill="#087F78"/>
+  <path d="M96 91H109V98H103V111H96V91Z" fill="white"/>
+  <path d="M110 91H116V111H110V91Z" fill="white"/>
+  <text x="144" y="103" fill="#14202B" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" letter-spacing="1.2">RECONPLAYBOOK</text>
+  <text x="144" y="128" fill="#087F78" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" letter-spacing="2.6">RECONCILIATION / V0.4</text>
+
+  <text x="82" y="238" fill="#14202B" font-family="Arial, Helvetica, sans-serif" font-size="62" font-weight="800" letter-spacing="0">FROM DIFFERENCE</text>
+  <text x="82" y="306" fill="#087F78" font-family="Arial, Helvetica, sans-serif" font-size="62" font-weight="800" letter-spacing="0">TO ACTION</text>
+  <text x="84" y="351" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="18">Diagnose the mismatch. Choose a playbook. Control the next action.</text>
+
+  <rect x="82" y="408" width="240" height="150" rx="12" fill="#F8FAFB" stroke="#DCE3E8" stroke-width="2"/>
+  <rect x="104" y="432" width="38" height="38" rx="8" fill="#E3F2F0"/>
+  <path d="M114 441H132V446H119V459H114V441ZM126 452H132V459H126V452Z" fill="#087F78"/>
+  <text x="104" y="505" fill="#14202B" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">LEDGER INPUTS</text>
+  <text x="104" y="531" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="13">CSV / JSON</text>
+  <text x="104" y="550" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="13">Local + channel records</text>
+
+  <path d="M322 484H378" stroke="#087F78" stroke-width="3"/>
+  <path d="M368 474L380 484L368 494" stroke="#087F78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="380" y="408" width="240" height="150" rx="12" fill="#FFFFFF" stroke="#087F78" stroke-width="2"/>
+  <rect x="402" y="432" width="38" height="38" rx="8" fill="#E3F2F0"/>
+  <path d="M410 443H432V449H410V443ZM410 453H432V459H410V453Z" fill="#087F78"/>
+  <text x="402" y="505" fill="#14202B" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">RECON ENGINE</text>
+  <text x="402" y="531" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="13">Normalize + match</text>
+  <text x="402" y="550" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="13">Classify every difference</text>
+
+  <path d="M620 484H676" stroke="#087F78" stroke-width="3"/>
+  <path d="M666 474L678 484L666 494" stroke="#087F78" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="678" y="408" width="240" height="150" rx="12" fill="#FFFFFF" stroke="#3766A8" stroke-width="2"/>
+  <rect x="700" y="432" width="38" height="38" rx="8" fill="#E9F0FB"/>
+  <path d="M709 445H729M709 452H725M709 459H720" stroke="#3766A8" stroke-width="4" stroke-linecap="round"/>
+  <text x="700" y="505" fill="#14202B" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">DIAGNOSIS</text>
+  <text x="700" y="531" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="13">Cause + confidence</text>
+  <text x="700" y="550" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="13">Impact + next checks</text>
+
+  <path d="M918 484H974" stroke="#3766A8" stroke-width="3"/>
+  <path d="M964 474L976 484L964 494" stroke="#3766A8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="976" y="408" width="240" height="150" rx="12" fill="#FFFFFF" stroke="#B76C00" stroke-width="2"/>
+  <rect x="998" y="432" width="38" height="38" rx="8" fill="#FFF3DC"/>
+  <path d="M1007 442H1027V462H1007V442ZM1011 438H1023" stroke="#B76C00" stroke-width="3" stroke-linejoin="round"/>
+  <text x="998" y="505" fill="#14202B" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">PLAYBOOK</text>
+  <text x="998" y="531" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="13">Risk + forbidden actions</text>
+  <text x="998" y="550" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="13">A path people can follow</text>
+
+  <path d="M1216 484H1272" stroke="#B76C00" stroke-width="3"/>
+  <path d="M1262 474L1274 484L1262 494" stroke="#B76C00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="1274" y="408" width="240" height="150" rx="12" fill="#FFFFFF" stroke="#BD3D37" stroke-width="2"/>
+  <rect x="1296" y="432" width="38" height="38" rx="8" fill="#FDEBEA"/>
+  <path d="M1305 442H1325V462H1305V442ZM1309 449H1321M1309 455H1318" stroke="#BD3D37" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="1296" y="505" fill="#14202B" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">CONTROL LOOP</text>
+  <text x="1296" y="531" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="13">Lookup + approval</text>
+  <text x="1296" y="550" fill="#687581" font-family="Arial, Helvetica, sans-serif" font-size="13">Resend + audit trail</text>
+
+  <rect x="82" y="620" width="1432" height="42" rx="8" fill="#14202B"/>
+  <circle cx="108" cy="641" r="6" fill="#2AA876"/>
+  <text x="128" y="647" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" letter-spacing="1.3">NO BLIND RETRIES</text>
+  <text x="360" y="647" fill="#B8C5CC" font-family="Arial, Helvetica, sans-serif" font-size="14">Every controlled action is gated by state, approval, idempotency and audit.</text>
+</svg>

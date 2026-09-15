@@ -1,0 +1,225 @@
+[
+  {
+    "code": "STATUS_SYNC_RECOVERY",
+    "name": "渠道成功，本地状态同步恢复",
+    "discrepancyType": "STATUS_MISMATCH",
+    "conditions": {
+      "localStatus": "PROCESSING",
+      "channelStatus": "SUCCESS"
+    },
+    "riskLevel": "HIGH",
+    "automation": "ASSISTED",
+    "forbiddenActions": [
+      "重复发起扣款",
+      "直接将订单标记为失败"
+    ],
+    "processingPath": [
+      {"order": 1, "action": "查询渠道订单最终状态", "owner": "系统", "mode": "AUTO"},
+      {"order": 2, "action": "检查本地回调、消息和下游入账", "owner": "人工", "mode": "MANUAL"},
+      {"order": 3, "action": "审批是否修正本地订单状态", "owner": "人工", "mode": "MANUAL"},
+      {"order": 4, "action": "补发支付成功事件并验证下游", "owner": "系统", "mode": "CONTROLLED"}
+    ],
+    "manualIntervention": {
+      "required": true,
+      "trigger": "渠道已成功且本地仍在处理中，修正状态前必须人工确认",
+      "entryAction": "创建人工处理任务"
+    }
+  },
+  {
+    "code": "STATUS_MISMATCH_REVIEW",
+    "name": "交易状态不一致核查",
+    "discrepancyType": "STATUS_MISMATCH",
+    "conditions": {},
+    "riskLevel": "HIGH",
+    "automation": "ASSISTED",
+    "forbiddenActions": [
+      "重复发起扣款",
+      "未经核查直接修改交易状态"
+    ],
+    "processingPath": [
+      {"order": 1, "action": "查询渠道详情和最终状态", "owner": "系统", "mode": "AUTO"},
+      {"order": 2, "action": "核对本地状态事件和业务日志", "owner": "人工", "mode": "MANUAL"},
+      {"order": 3, "action": "确认处理方案并留下审计记录", "owner": "人工", "mode": "MANUAL"}
+    ],
+    "manualIntervention": {
+      "required": true,
+      "trigger": "两边状态无法直接解释",
+      "entryAction": "创建人工处理任务"
+    }
+  },
+  {
+    "code": "AMOUNT_DISCOUNT_OR_REFUND_REVIEW",
+    "name": "金额口径或部分退款核查",
+    "discrepancyType": "AMOUNT_MISMATCH",
+    "conditions": {
+      "feeEqual": "true"
+    },
+    "riskLevel": "HIGH",
+    "automation": "ASSISTED",
+    "forbiddenActions": [
+      "直接修改账务金额",
+      "未经核查执行退款或冲正"
+    ],
+    "processingPath": [
+      {"order": 1, "action": "核对原始支付报文和金额单位", "owner": "人工", "mode": "MANUAL"},
+      {"order": 2, "action": "核对折扣、部分退款和金额口径", "owner": "人工", "mode": "MANUAL"},
+      {"order": 3, "action": "确认币种及汇率转换规则", "owner": "人工", "mode": "MANUAL"},
+      {"order": 4, "action": "审批账务调整或生成差错结论", "owner": "人工", "mode": "MANUAL"}
+    ],
+    "manualIntervention": {
+      "required": true,
+      "trigger": "支付金额存在差异，且手续费字段一致",
+      "entryAction": "创建金额差异人工核查任务"
+    }
+  },
+  {
+    "code": "AMOUNT_MISMATCH_REVIEW",
+    "name": "金额差异核查",
+    "discrepancyType": "AMOUNT_MISMATCH",
+    "conditions": {},
+    "riskLevel": "HIGH",
+    "automation": "MANUAL",
+    "forbiddenActions": [
+      "直接修改账务金额",
+      "未经核查执行退款或冲正"
+    ],
+    "processingPath": [
+      {"order": 1, "action": "核对原始报文、币种和手续费规则", "owner": "人工", "mode": "MANUAL"},
+      {"order": 2, "action": "确认差异原因并保留证据", "owner": "人工", "mode": "MANUAL"}
+    ],
+    "manualIntervention": {
+      "required": true,
+      "trigger": "金额差异无法通过标准口径解释",
+      "entryAction": "创建金额差异人工核查任务"
+    }
+  },
+  {
+    "code": "FEE_RULE_REVIEW",
+    "name": "渠道手续费规则核查",
+    "discrepancyType": "FEE_MISMATCH",
+    "conditions": {},
+    "riskLevel": "MEDIUM",
+    "automation": "ASSISTED",
+    "forbiddenActions": [
+      "未经确认修改结算金额"
+    ],
+    "processingPath": [
+      {"order": 1, "action": "核对渠道费率和结算规则版本", "owner": "人工", "mode": "MANUAL"},
+      {"order": 2, "action": "确认手续费含税、扣除或四舍五入口径", "owner": "人工", "mode": "MANUAL"},
+      {"order": 3, "action": "对比原始渠道结算明细", "owner": "人工", "mode": "MANUAL"}
+    ],
+    "manualIntervention": {
+      "required": true,
+      "trigger": "手续费差异需要财务口径确认",
+      "entryAction": "创建财务核查任务"
+    }
+  },
+  {
+    "code": "LATE_ARRIVAL_WAIT",
+    "name": "延迟账单等待与复核",
+    "discrepancyType": "LATE_ARRIVAL",
+    "conditions": {},
+    "riskLevel": "LOW",
+    "automation": "WAIT",
+    "forbiddenActions": [
+      "将临时缺失直接认定为支付失败",
+      "据此重复发起支付"
+    ],
+    "processingPath": [
+      {"order": 1, "action": "核对账单业务日期和时区", "owner": "系统", "mode": "AUTO"},
+      {"order": 2, "action": "等待下一批渠道账单", "owner": "系统", "mode": "WAIT"},
+      {"order": 3, "action": "超过延迟窗口后转人工核查", "owner": "人工", "mode": "MANUAL"}
+    ],
+    "manualIntervention": {
+      "required": false,
+      "trigger": "超过延迟窗口仍未出现渠道记录",
+      "entryAction": "升级人工处理"
+    }
+  },
+  {
+    "code": "DUPLICATE_CHANNEL_REVIEW",
+    "name": "渠道重复流水核查",
+    "discrepancyType": "DUPLICATE_CHANNEL_RECORD",
+    "conditions": {
+      "duplicate": "true"
+    },
+    "riskLevel": "HIGH",
+    "automation": "ASSISTED",
+    "forbiddenActions": [
+      "重复入账",
+      "重复执行退款"
+    ],
+    "processingPath": [
+      {"order": 1, "action": "核对渠道流水号是否真的不同", "owner": "人工", "mode": "MANUAL"},
+      {"order": 2, "action": "检查账单是否重复导入", "owner": "系统", "mode": "AUTO"},
+      {"order": 3, "action": "确认本地幂等键和渠道唯一性", "owner": "人工", "mode": "MANUAL"}
+    ],
+    "manualIntervention": {
+      "required": true,
+      "trigger": "相同订单号存在未被唯一匹配的额外渠道流水",
+      "entryAction": "创建重复流水人工核查任务"
+    }
+  },
+  {
+    "code": "LOCAL_RECORD_WAIT",
+    "name": "本地单边记录等待补账",
+    "discrepancyType": "UNMATCHED_LOCAL",
+    "conditions": {},
+    "riskLevel": "HIGH",
+    "automation": "ASSISTED",
+    "forbiddenActions": [
+      "直接发起退款",
+      "重复发起扣款"
+    ],
+    "processingPath": [
+      {"order": 1, "action": "核对账单日期、时区和导入范围", "owner": "系统", "mode": "AUTO"},
+      {"order": 2, "action": "主动查询渠道订单详情", "owner": "系统", "mode": "AUTO"},
+      {"order": 3, "action": "等待下一批账单确认是否延迟到账", "owner": "系统", "mode": "WAIT"},
+      {"order": 4, "action": "超时后转人工判断交易结果", "owner": "人工", "mode": "MANUAL"}
+    ],
+    "manualIntervention": {
+      "required": true,
+      "trigger": "本地存在交易，但渠道账单暂时没有对应记录",
+      "entryAction": "创建本地单边人工核查任务"
+    }
+  },
+  {
+    "code": "CHANNEL_RECORD_REVIEW",
+    "name": "渠道单边记录本地落库核查",
+    "discrepancyType": "UNMATCHED_CHANNEL",
+    "conditions": {},
+    "riskLevel": "HIGH",
+    "automation": "ASSISTED",
+    "forbiddenActions": [
+      "直接冲正渠道交易",
+      "未经核查修改本地余额"
+    ],
+    "processingPath": [
+      {"order": 1, "action": "检查本地数据源和导出时间范围", "owner": "系统", "mode": "AUTO"},
+      {"order": 2, "action": "按渠道订单号查询本地数据库", "owner": "系统", "mode": "AUTO"},
+      {"order": 3, "action": "确认是否存在本地落库或消息消费失败", "owner": "人工", "mode": "MANUAL"}
+    ],
+    "manualIntervention": {
+      "required": true,
+      "trigger": "渠道存在交易，但本地没有对应流水",
+      "entryAction": "创建渠道单边人工核查任务"
+    }
+  },
+  {
+    "code": "MATCHED_ARCHIVE",
+    "name": "正常匹配归档",
+    "discrepancyType": "MATCHED",
+    "conditions": {},
+    "riskLevel": "LOW",
+    "automation": "AUTO",
+    "forbiddenActions": [],
+    "processingPath": [
+      {"order": 1, "action": "保存匹配证据并归档", "owner": "系统", "mode": "AUTO"}
+    ],
+    "manualIntervention": {
+      "required": false,
+      "trigger": "",
+      "entryAction": ""
+    }
+  }
+]
