@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ReconPlaybook
 
 > 面向支付对账场景的差异诊断与差错处理原型。
@@ -379,3 +380,7 @@ mvn test
 ## License
 
 本项目当前作为个人原型项目使用。正式开源前可根据发布计划补充具体 License。
+=======
+# ReconPlayBook
+An open-source engine that classifies, explains, and resolves payment reconciliation discrepancies.
+>>>>>>> 36c3d6bf5eb8fd7298071f4cd99dfcd179a64bd7
